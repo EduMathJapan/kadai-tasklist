@@ -17,7 +17,7 @@
         <tbody>
             @foreach($tasks as $task)
             <tr>
-                <td>{!! link_to_route('tasks.show', $task ->id, ['task'+> $task=>id] !!}</td>
+                <td>{!! link_to_route('tasks.show', $task ->id, ['task'=> $task->id]) !!}</td>
                 <td>{{ $task->content }}</td>
             </tr>
             @endforeach
@@ -37,8 +37,4 @@
         <li class = 'nav-item'>{!! link_to_route('tasks.create','新規タスクの登録',[],['class'=>'nav-link']) !!}</li>
     </ul>
 </div>
-
-{{--タスク編集へのリンク --}}
-
-{!! link_to_route( ' tasks.edit' , 'このタスクを編集' , ['task' =>$task->id], ['class' => 'btn btn-light'] !!}
 @endsection

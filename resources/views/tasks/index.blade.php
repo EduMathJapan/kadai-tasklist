@@ -30,15 +30,16 @@
     
  
     
-
+ {{ $tasks->links() }}
     
 {!! link_to_route('tasks.create', '新規タスクの登録',[],['class' =>'btn btn-primary']) !!}
- {!! link_to_route( 'tasks.edit' , 'このタスクを編集' , ['task' =>$task->id], ['class' => 'btn btn-light',]) !!}
+
 <div class ='collapse navbar-collapse' id='nav-bar'>
     <ul class = 'navbar-nav mr-auto'></ul>
     <ul class= 'navbar-nav'>
-        {{-- タスク作成へのリンク --}}
+        {{-- タスク作成 へのリンク --}}
         <li class = 'nav-item'>{!! link_to_route('tasks.create','新規タスクの登録',[],['class'=>'nav-link']) !!}</li>
+
     </ul>
 </div>
 @endsection

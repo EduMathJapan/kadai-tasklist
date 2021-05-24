@@ -3,29 +3,39 @@
 @section('content')
 
 <!-- ここにページ毎のコンテンツを書く -->
-<h1> id = {{ $task->id }} のタスク詳細ページ</h1>
+    @if (Auth::id() == $task->user_id)
 
-<table class = 'table table-bordered'>
-    <tr>
+        <h1> id = {{ $task->id }} のタスク詳細ページ</h1>
+
+
+
+        <table class = 'table table-bordered'>
+      <tr>
         <th>id</th>
         <td>{{ $task->id }}</td>
-    </tr>
-    <tr>
+        </tr>
+     <tr>
         <th>ステータス</th>
         <td>{{ $task->status}}</td>
-    </tr>
-    <tr>
+        </tr>
+     <tr>
         <th>タスク内容</th>
         <td>{{$task->content}}</td>
     </tr>
 </table>
      {{--タスク編集へのリンク --}}
-
+ 
+                        
     {!! link_to_route( 'tasks.edit' , 'このタスクを編集' , ['task' =>$task->id], ['class' => 'btn btn-light']) !!}
-
     {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method'=> 'delete']) !!}
     {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
+    
+    @else
+
+  　{!! redirect('/') !!}
+    
+    @endif
     
    
 @endsection

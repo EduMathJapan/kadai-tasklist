@@ -69,7 +69,7 @@ class TasksController extends Controller
             'status' => $request->status,
         ]);
         
-        header('Location:./');
+       return redirect('/');
     }
 
     /**

@@ -4,6 +4,7 @@
 
 <!-- ここにページ毎のコンテンツを書く -->
 
+ @if (Auth::id() == $task->user_id)
 
 <h1>id: {{ $task->id }} のメッセージ編集ページ</h1>
 
@@ -26,6 +27,11 @@
             {!! Form::close() !!}
         </div>
     </div>
+@else
 
+ 　{!! redirect('/') !!}
+ 　
+@endif
+    
 
 @endsection
